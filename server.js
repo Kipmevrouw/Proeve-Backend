@@ -9,7 +9,14 @@ dotenv.config();
 const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
 
 const app = express();
-app.use(cors());
+
+// CORS configuratie toevoegen
+const corsOptions = {
+  origin: "https://techyourtalentamsterdam.nl/" // Vervang dit door het domein van je frontend
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 const db = mysql.createConnection({
@@ -17,6 +24,7 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: process.env.DB_PORT 
 });
 
 app.post("/signup", (req, res) => {
