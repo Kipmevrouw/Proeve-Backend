@@ -28,6 +28,7 @@ const db = mysql.createConnection({
 });
 
 app.post("/signup", (req, res) => {
+  console.log("Ontvangen gegevens:", req.body);
   const sql =
     "INSERT INTO gebruiker (`voornaam`, `achternaam`, `school`, `code`, `uitslag1`, `uitslag2`, `wachtwoord`, `akkoort_voorwaarden`) VALUES (?)";
   const wachtwoord = req.body.wachtwoord;
@@ -84,6 +85,14 @@ app.post("/login", (req, res) => {
       });
     }
   );
+});
+
+db.query('SELECT 1 + 1 AS result', (error, results, fields) => {
+  if (error) {
+    console.error('Error connecting to the database:', error);
+    return;
+  }
+  console.log('Database connection successful:', results[0].result);
 });
 
 const PORT = process.env.PORT || 3000;
