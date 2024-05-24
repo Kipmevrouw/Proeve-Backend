@@ -12,7 +12,7 @@ const app = express();
 
 // CORS configuratie toevoegen
 const corsOptions = {
-  origin: "https://techyourtalentamsterdam.nl/" // Vervang dit door het domein van je frontend
+  origin: "https://techyourtalentamsterdam.nl" // Vervang dit door het domein van je frontend
 };
 
 app.use(cors(corsOptions));
