@@ -94,7 +94,7 @@ db.query('SELECT 1 + 1 AS result', (error, results, fields) => {
   console.log('Database connection successful:', results[0].result);
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3306;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
