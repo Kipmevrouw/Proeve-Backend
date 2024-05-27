@@ -21,7 +21,8 @@ const db = mysql.createConnection({
   host: MYSQL_ADDON_HOST,
   database: MYSQL_ADDON_DB,
   user: MYSQL_ADDON_USER,
-  password: MYSQL_ADDON_PASSWORD
+  password: MYSQL_ADDON_PASSWORD,
+  port: MYSQL_ADDON_PORT
 });
 
 app.post("/signup", (req, res) => {
