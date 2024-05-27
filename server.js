@@ -18,10 +18,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: MYSQL_ADDON_HOST,
-  database: MYSQL_ADDON_DB,
-  user: MYSQL_ADDON_USER,
-  password: MYSQL_ADDON_PASSWORD
+  host: process.env.MYSQL_ADDON_HOST,
+  database: process.env.MYSQL_ADDON_DB,
+  user: process.env.MYSQL_ADDON_USER,
+  password: process.env.MYSQL_ADDON_PASSWORD
 });
 
 app.post("/signup", (req, res) => {
@@ -94,7 +94,7 @@ db.query('SELECT 1 + 1 AS result', (error, results, fields) => {
   console.log('Database connection successful:', results[0].result);
 });
 
-const PORT = MYSQL_ADDON_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
