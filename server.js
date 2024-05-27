@@ -31,6 +31,7 @@ app.post("/signup", (req, res) => {
     "INSERT INTO gebruiker (`voornaam`, `achternaam`, `school`, `code`, `uitslag1`, `uitslag2`, `wachtwoord`, `akkoort_voorwaarden`) VALUES (?)";
   const wachtwoord = req.body.wachtwoord;
   bcrypt.hash(wachtwoord.toString(), saltRounds, (err, hash) => {
+    console.log("bcrypt done");
     if (err) {
       console.log(err);
       return res.status(500).json({ error: "Internal server error" });
