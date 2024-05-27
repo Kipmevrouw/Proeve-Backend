@@ -51,6 +51,7 @@ app.post("/signup", (req, res) => {
       if (err) return res.json(err);
       return res.json(data);
     });
+    console.log("toegevoegd aan database")
   });
 });
 
