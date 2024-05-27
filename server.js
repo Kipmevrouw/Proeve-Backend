@@ -46,6 +46,7 @@ app.post("/signup", (req, res) => {
       hash,
       req.body.akkoort_voorwaarden,
     ];
+    console.log("values gelezen")
     db.query(sql, [values], (err, data) => {
       if (err) return res.json(err);
       return res.json(data);
