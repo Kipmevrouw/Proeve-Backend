@@ -18,13 +18,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: process.env.MYSQL_ADDON_HOST,
-  database: process.env.MYSQL_ADDON_DB,
-  user: process.env.MYSQL_ADDON_USER,
-  password: process.env.MYSQL_ADDON_PASSWORD,
-  port: process.env.MYSQL_ADDON_PORT,
+  host: process.env["MYSQL_ADDON_HOST"],
+  database: process.env["MYSQL_ADDON_DB"],
+  user: process.env["MYSQL_ADDON_USER"],
+  password: process.env["MYSQL_ADDON_PASSWORD"],
+  port: process.env["MYSQL_ADDON_PORT"],
 });
-console.log(process.env)
 
 app.post("/signup", (req, res) => {
   console.log("Ontvangen gegevens:", req.body);
