@@ -18,11 +18,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: 'bloem5m7wkccqp144xip-mysql.services.clever-cloud.com',
-  database: 'bloem5m7wkccqp144xip',
-  user: 'usnspfbyxk136jvr',
-  password: '9tlLs1TwbY3yZgvZkgX4',
-  port: '3306',
+  host: process.env.MYSQL_ADDON_HOST,
+  database: process.env.MYSQL_ADDON_DB,
+  user: process.env.MYSQL_ADDON_USER,
+  password: process.env.MYSQL_ADDON_PASSWORD,
+  port: process.env.MYSQL_ADDON_PORT,
 });
 
 app.post("/signup", (req, res) => {
