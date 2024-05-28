@@ -24,6 +24,7 @@ const db = mysql.createConnection({
   password: process.env.MYSQL_ADDON_PASSWORD,
   port: process.env.MYSQL_ADDON_PORT,
 });
+console.log(process.env)
 
 app.post("/signup", (req, res) => {
   console.log("Ontvangen gegevens:", req.body);
