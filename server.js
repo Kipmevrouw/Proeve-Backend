@@ -96,6 +96,19 @@ db.query('SELECT 1 + 1 AS result', (error, results, fields) => {
   console.log('Database connection successful:', results[0].result);
 });
 
+db.query("INSERT INTO gebruiker (`voornaam`, `achternaam`, `school`, `code`, `uitslag1`, `uitslag2`, `wachtwoord`, `akkoort_voorwaarden`) VALUES (?)", [
+      "Test",
+      "Test",
+      "Test",
+      "tyt",
+      "De doener",
+      "De doener",
+      "123",
+      true,
+    ], (err, data) => {
+      if (err) return res.json(err);
+      return res.json(data);
+    });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
