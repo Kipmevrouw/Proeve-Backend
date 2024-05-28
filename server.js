@@ -18,11 +18,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: 'monorail.proxy.rlwy.net',
-  database: 'railway',
-  user: 'root',
-  password: 'JuDVnSHqVEblaAaQKVQedIdmWoDgJjps',
-  port: '17626',
+  host: process.env.MYSQLHOST,
+  database: process.env.MYSQLDATABASE,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  port: process.env.MYSQLPORT,
 });
 
 app.post("/signup", (req, res) => {
