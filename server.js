@@ -42,6 +42,8 @@ app.post("/signup", (req, res) => {
       console.log(err);
       return res.status(500).json({ error: "Internal server error" });
     }
+    
+    const akkoort_voorwaarden = req.body.akkoort_voorwaarden === 'on' ? 1 : 0;
     const values = [
       req.body.voornaam,
       req.body.achternaam,
@@ -50,7 +52,7 @@ app.post("/signup", (req, res) => {
       req.body.uitslag1,
       req.body.uitslag2,
       hash,
-      req.body.akkoort_voorwaarden,
+      akkoort_voorwaarden,
     ];
     console.log("values gelezen");
 
@@ -92,28 +94,6 @@ app.post("/login", (req, res) => {
     });
   });
 });
-
-// db.query('SELECT 1 + 1 AS result', (error, results, fields) => {
-//   if (error) {
-//     console.error('Error connecting to the database:', error);
-//     return;
-//   }
-//   console.log('Database connection successful:', results[0].result);
-// });
-
-// db.query("INSERT INTO gebruiker (`voornaam`, `achternaam`, `school`, `code`, `uitslag1`, `uitslag2`, `wachtwoord`, `akkoort_voorwaarden`) VALUES (?)", [
-//       "Test",
-//       "Test",
-//       "Test",
-//       "tyt",
-//       "De doener",
-//       "De doener",
-//       "123",
-//       true,
-//     ], (err, data) => {
-//        console.log(data);
-//       console.log(err);
-//     });
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
