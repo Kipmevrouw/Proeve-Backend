@@ -96,19 +96,19 @@ db.query('SELECT 1 + 1 AS result', (error, results, fields) => {
   console.log('Database connection successful:', results[0].result);
 });
 
-db.query("INSERT INTO gebruiker (`voornaam`, `achternaam`, `school`, `code`, `uitslag1`, `uitslag2`, `wachtwoord`, `akkoort_voorwaarden`) VALUES (?)", [
-      "Test",
-      "Test",
-      "Test",
-      "tyt",
-      "De doener",
-      "De doener",
-      "123",
-      true,
-    ], (err, data) => {
-       console.log(data);
-      console.log(err);
-    });
+// db.query("INSERT INTO gebruiker (`voornaam`, `achternaam`, `school`, `code`, `uitslag1`, `uitslag2`, `wachtwoord`, `akkoort_voorwaarden`) VALUES (?)", [
+//       "Test",
+//       "Test",
+//       "Test",
+//       "tyt",
+//       "De doener",
+//       "De doener",
+//       "123",
+//       true,
+//     ], (err, data) => {
+//        console.log(data);
+//       console.log(err);
+//     });
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
