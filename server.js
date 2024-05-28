@@ -106,8 +106,8 @@ db.query("INSERT INTO gebruiker (`voornaam`, `achternaam`, `school`, `code`, `ui
       "123",
       true,
     ], (err, data) => {
-      if (err) return res.json(err);
-      return res.json(data);
+       console.log(data);
+      console.log(err);
     });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
